@@ -4,7 +4,7 @@ OT/ICS security exercise: baseline analysis of a real Modbus/TCP packet capture,
 field inspection, and validation of detection logic by injecting a synthetic unauthorized
 write and confirming it is caught by both Wireshark and a Suricata rule.
 
-Full write-up with screenshots: [`report/OT_Protocol_Analysis_Report.docx`](report/OT_Protocol_Analysis_Report.docx)
+Full write-up with screenshots: [`report/OT_Protocol_Analysis_Report.docx`](report/OT_Protocol_Analysis_Report.pdf)
 
 ## What was done
 
