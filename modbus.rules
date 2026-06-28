@@ -1,0 +1,22 @@
+# modbus.rules
+#
+# Detects unauthorized Modbus write commands - i.e. Write Multiple Coils (15)
+# or Write Multiple Registers (16) originating from any source other than
+# the known master (141.81.0.10) established during baseline analysis.
+#
+# Function code sits at byte offset 7 of the Modbus/TCP (MBAP) header:
+#   Bytes 0-1  Transaction ID
+#   Bytes 2-3  Protocol ID
+#   Bytes 4-5  Length
+#   Byte 6     Unit ID
+#   Byte 7     Function Code   <-- checked below
+#   Bytes 8-9  Reference Number (starting address)
+#   Bytes 10-11 Quantity
+#
+# Scope: covers only the two write types observed in the analyzed capture
+# (Function Codes 15 and 16). A production deployment should also cover
+# Function Codes 05 (Write Single Coil) and 06 (Write Single Register),
+# even though they were not observed in this dataset.
+
+alert tcp !141.81.0.10 any -> any 502 (msg:"Unauthorized Write Multiple Coils"; content:"|0F|"; offset:7; depth:1; sid:1000003; rev:1;)
+alert tcp !141.81.0.10 any -> any 502 (msg:"Unauthorized Write Multiple Registers"; content:"|10|"; offset:7; depth:1; sid:1000004; rev:1;)
