@@ -4,7 +4,7 @@ OT/ICS security exercise: baseline analysis of a real Modbus/TCP packet capture,
 field inspection, and validation of detection logic by injecting a synthetic unauthorized
 write and confirming it is caught by both Wireshark and a Suricata rule.
 
-Full write-up with screenshots: [`report/OT_Protocol_Analysis_Report.docx`](report/OT_Protocol_Analysis_Report.pdf)
+Full write-up with screenshots: [`OT_Protocol_Analysis_Report.pdf`](OT_Protocol_Analysis_Report.pdf)
 
 ## What was done
 
@@ -36,7 +36,7 @@ successfully caught a synthetic unauthorized write on the first try.
 ```
 .
 ├── report/
-│   └── OT_Protocol_Analysis_Report.docx   # full write-up with screenshots
+│   └── OT_Protocol_Analysis_Report.pdf    # full write-up with screenshots
 ├── scripts/
 │   └── inject_anomaly.py                  # Scapy script: injects unauthorized write
 └── rules/
